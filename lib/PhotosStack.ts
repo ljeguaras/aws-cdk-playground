@@ -35,8 +35,14 @@ export class PhotosStack extends cdk.Stack{
 
     //Intrinsic function sample
     //Intrinsic functions evaluated in the cloud, inside the CloudFormation service to resolved values
-        // this.initializeSuffix();
-        // new Bucket(this,'PhotosBucket',{bucketName:`photos-bucket-${this.stackSuffix}`});
+        this.initializeSuffix();
+
+        const photosBucket = new Bucket(this,'PhotosBucket',{bucketName:`photos-bucket-${this.stackSuffix}`});
+        
+        new cdk.CfnOutput(this,'photos-bucket', {
+            value : photosBucket.bucketArn,
+            exportName:'photos-bucket'
+        });
     }
 
     private initializeSuffix(){
