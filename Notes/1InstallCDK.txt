@@ -1,0 +1,5 @@
+○ Install CDK
+    § In terminal enter : npm i -g aws-cdk
+○ Create CDK Proj
+    § In terminal enter: cdk init
+        □ cdk init app --language typescript
