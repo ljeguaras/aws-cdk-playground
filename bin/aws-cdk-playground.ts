@@ -6,5 +6,5 @@ import { PhotosHandlerStack } from '../lib/PhotosHandlerStack';
 
 const app = new cdk.App();
 new AwsCdkPlaygroundStack(app, 'AwsCdkPlaygroundStack', {});
-new PhotosStack(app,'PhotosStack');
-new PhotosHandlerStack(app,'PhotosHandlerStack');
+const photosStack =  new PhotosStack(app,'PhotosStack');
+new PhotosHandlerStack(app,'PhotosHandlerStack',{targetBucketArn:photosStack.photosBucketArn});
